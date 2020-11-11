@@ -1,0 +1,46 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+<script src="figures.js"></script>
+<script src="rules.js"></script>
+<link rel="stylesheet" href="style.css">
+<div id='content'>
+<div id='tabela'>
+	<table id='tabelli'>  
+	  <tr id='figuras'>
+		<th>Primeira figura</th>
+		<th>Segunda figura</th> 
+		<th>Terceira figura</th>
+		<th>Quarta figura</th>
+	  </tr>
+	<script>
+	function geraTabela(){
+		for(tipo of modos()){ // gera a tabela;  como são 64 modos e 4 figuras, o total são 256 silogismos 
+			document.write("<tr>");
+			for(i=1;i<=4;i++){
+				document.write("<td><div id='"+tipo+i+"'>"+tipo+"-"+i+"<br><hr>"+silogismo(tipo+"-"+i)+"</div></td>");
+			}
+			document.write("</tr>");
+		}
+	}
+	geraTabela();
+	</script>	
+	</table>
+</div>
+
+<div id='regras'>
+	<div class='chkbx'>
+	  <label>Regras para o silogismo válido</label><br><br>
+	  <ul>
+		<li><input type="checkbox" id='r1'><label for="r1">O termo médio deve estar distribuído em pelo menos uma das premissas.</label></li>
+		<li><input type="checkbox" id='r2'><label for="r2">Se um termo está distribuído na conclusão, deve estar nas premissas.</li></label>
+		<li><input type="checkbox" id='r3'><label for="r3">Não tem duas premissas negativas.</li></label>
+		<li><input type="checkbox" id='r4'><label for="r4">Se uma premissa é negativa, a concusão também deve ser.</li></label>
+		<li><input type="checkbox" id='r5'><label for="r5">Se as duas premissas são universais, a conclusão também é.</li></label>
+	  </ul>
+	</div>
+</div>
+</div>
+<script src='applyRules.js'>
+</script>
+</body>
