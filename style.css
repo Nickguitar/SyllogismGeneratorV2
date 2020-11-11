@@ -1,0 +1,73 @@
+body{
+background-color: #333;
+color: #ccc;
+padding: 30px;
+}
+
+#tabelli{
+	width: 100%;
+	text-align: center;
+
+}
+#tabelli td{
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+hr{
+border: 0.1px dotted #777;
+}
+
+#tabelli td{
+padding:10px;
+}
+
+.distr{
+color: #f00;
+}
+
+.maior{
+color: #0f0;
+}
+
+.medio{
+color: #ff0;
+}
+
+.menor{
+color: #f00;
+}
+
+
+
+
+#tabela{
+float:left;
+width:50%;
+
+}
+
+#content{
+width:100%;
+}
+
+#regras{
+
+
+float:right;
+width:40%;
+margin-left:5%;
+margin-right:5%;
+}
+
+.chkbx ul {
+  margin: 0;
+  list-style: none;
+  float: left;
+}
+
+
+.chkbx input{
+margin:10px;
+}
+
