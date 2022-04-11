@@ -3,7 +3,7 @@ JS script that generate all the 256 possible syllogisms and applies the rules to
 
 ## How it works
 
-**1**. First, it generates all the possible combinations of three characters between the letters "A", "E", "I" and "O", each one representing a different categorical proposition. The result is something like ("AAA", "AAE", "AAO", ..., "EAI", "EAO", ..., "OOI", "OOO"). There are 64 (4³) possible combinations. Each of these trio is a mode of an syllogism.
+**1**. First, it generates all the possible combinations of three characters between the letters "A", "E", "I" and "O", each one representing a different categorical proposition. The result is something like ("AAA", "AAE", "AAO", ..., "EAI", "EAO", ..., "OOI", "OOO"). There are 64 (4³) possible combinations. Each of these trio is a mode of syllogism.
 
 **2**. Then, there are four functions, figura1(modo), figura2(modo), etc., one for each syllogism figure. Each of these functions receives a mode of syllogism as input (e.g. AII), generates an argument according to the correct figure and return the argument in natural language.
 E.g. if the input is AII and it is the first figure, the output is "All M is P; Some S is M; Some S is P"). 
@@ -12,11 +12,11 @@ If the input is EIO and it is the third figure, the output is "No M is P; Some M
 
 The argument is outputed as an array.
 
-**3**. There is another function, silogismo(modoFigura), that receives a mode and a figure of argument as input. E.g. "AII-1". This means that this argument has AII as it's mode and is in the first figure. The function determines the figure of the argument and outputs the corresponding argument as a string (using one of the four previous functions). 
+**3**. There is another function, silogismo(modoFigura), that receives a mode and a figure of argument as input. E.g. "AII-1". This means that this argument has AII as its mode and is in the first figure. The function determines the figure of the argument and outputs the corresponding argument as a string (using one of the four previous functions). 
 
-**4**. Finally, there is a loop that range over all the 64 possible modes of syllogism, and for each of them, there is another loop that generates the argument corresponding to each of the 4 figures of syllogism. This generates a table with 64x4=256 syllogisms.
+**4**. Finally, there is a loop that ranges over all the 64 possible modes of syllogism, and for each of them there is another loop that generates the argument corresponding to each of the 4 figures of syllogism. This generates a table with 64x4=256 syllogisms.
 
-**5**. There are 5 functions, r1(), r2(), etc. that get the list of syllogisms (generated on step 4) and return the syllogisms that doesn't follow them. 
+**5**. There are 5 functions, r1(), r2(), ... r5(), that get the list of syllogisms (generated at step 4) and return the syllogisms that doesn't follow them. 
 
 #In a valid syllogism, the following hold:
 1. The middle term is distributed in at least one premise
@@ -25,7 +25,7 @@ The argument is outputed as an array.
 4. If some premise is negative, the conclusion is affirmative
 5. If both premises are universal, the conclusion is also universal
 
-So, for example, r1() return an array with all the syllogisms in which the middle term isn't distributed in some premise, r5() return an array with all the syllogisms in which both premises are universal but the conclusion is particular.
+So, for example, r1() returns an array with all the syllogisms in which the middle term isn't distributed in some premise; r5() returns an array with all the syllogisms in which both premises are universal but the conclusion is particular.
 
 **6**. Lastly, there are some checkboxes corresponding to each rule so that, e.g, when you check the first checkbox, the first rule is applied, and all the syllogisms that doesn't follow it are removed from the list of syllogisms (the list generated in 4). So if you check all the checkboxes, only the 15 inconditionally valid syllogisms are shown in the table.
 
